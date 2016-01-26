@@ -39,7 +39,7 @@ setup(
 		'Programming Language :: Python :: 2 :: Only',
 		'Topic :: Utilities' ],
 
-	install_requires = ['layered-yaml-attrdict-config'],
+	install_requires = ['layered-yaml-attrdict-config', 'xxhash'],
 
 	packages = find_packages(),
 	include_package_data = True,

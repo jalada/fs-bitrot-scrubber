@@ -197,17 +197,15 @@ Default configuration has no limits configured.
 
 ### Checksum algorithm
 
-[SHA-256](http://en.wikipedia.org/wiki/Sha256) (SHA-2 family hash) is configured
-by default, but can be changed via "operation.checksum" key to whatever [python
-hashlib](http://docs.python.org/2/library/hashlib.html) has support for
-(generally everything that's included in openssl), for example:
+This fork of fs-bitrot-scrubber uses
+[a Python wrapper](https://pypi.python.org/pypi/xxhash/) for
+[xxhash](https://github.com/Cyan4973/xxHash) for fast non-cryptographic
+hashing. The default is to use the 64-bit version of the function, but if you
+are running fs-bitrot-scrubber on a 32-bit machine you should use the 32-bit
+version:
 
-	operation:
-	  checksum: ripemd160
-
-All the files will have to be rehashed on any change to this parameter and
-metadata db may as well be just removed in such case, so that tool won't report
-a lot of checksum mismatches on the next run.
+       operation:
+         checksum: xxh32
 
 
 ### Filtering

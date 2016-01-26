@@ -3,6 +3,7 @@
 from __future__ import print_function
 
 import itertools as it, operator as op, functools as ft
+import xxhash
 from os.path import realpath, join, isdir, dirname, basename, exists
 from contextlib import contextmanager
 from time import time, sleep
@@ -227,7 +228,7 @@ def main(argv=None):
 	## Options processing
 	if not cfg.storage.metadata.db:
 		parser.error('Path to metadata db ("storage.metadata.db") must be configured.')
-	try: cfg.operation.checksum = getattr(hashlib, cfg.operation.checksum)
+	try: cfg.operation.checksum = getattr(xxhash, cfg.operation.checksum)
 	except AttributeError: cfg.operation.checksum = hashlib.new(cfg.operation.checksum)
 	if is_str(cfg.storage.path): cfg.storage.path = [cfg.storage.path]
 	else: cfg.storage.path = list(cfg.storage.path or list())

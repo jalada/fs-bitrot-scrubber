@@ -50,10 +50,9 @@ storage:
 
 
 operation:
-  # Name of the hash/checksum algo to use.
-  # Must be available in python hashlib module - either as attr or via hashlib.new().
-  # Metadata-db must be completely rebuilt from scratch on any change here.
-  checksum: sha256
+  # Name of the hash/checksum algo to use. Choose xxh32 for 32-bit systems,
+  # and xxh64 for 64-bit systems (the default)
+  checksum: xxh64
 
   # Size of a block to read/hash from files.
   # Higher - faster, but needs more RAM and makes
