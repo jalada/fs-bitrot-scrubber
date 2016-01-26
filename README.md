@@ -88,6 +88,7 @@ without any installation, provided all the necessary dependencies are in place.
 
 * [Python 2.7 (not 3.X)](http://python.org) with sqlite3 support
 * [layered-yaml-attrdict-config](https://github.com/mk-fg/layered-yaml-attrdict-config)
+* [xxhash](https://pypi.python.org/pypi/xxhash/)
 
 
 
